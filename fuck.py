@@ -1,18 +1,23 @@
 #!/usr/bin/python
 
 from sys import argv
+import argparse
 from os import path
 
+parser = argparse.ArgumentParser("Brainfuck interpreter")
+parser.add_argument("file")
+#parser.add_argument("-i", help="run in interactive mode")
+args = parser.parse_args()
 
 # read the file
-content = open(argv[1]).read()
+content = open(args.file).read()
 
 # initialize memory
 memory = [0]
 index = 0
 
-# is debug?
-debug = len(argv) > 2 and argv[2] in ("-d", --debug) 
+# is debug? TODO
+#debug = len(argv) > 2 and argv[2] in ("-d", --debug) 
 # TODO proper argument handling
 # TODO debug
 # TODO interactive mode
@@ -40,6 +45,8 @@ for c in content:
 	elif c == ",":
 		memory[index] = ord(input("> ")[0])
 	elif c == "[":
+		pass
 		# TODO loops
 	elif c == "]":
+		pass
 
